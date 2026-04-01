@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background-color: #ff9c5b;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    background-color: #ff9c5b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #cf4a1f;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* NAVIGATION */
+nav {
+    background-color: #ff6d2d;
+    border: 2px solid #cf4a1f;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* MAIN GRID */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    margin: 10px;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+}
+
+/* LEFT SIDEBAR */
+.left-sidebar {
+    background-color: #ffe0b2;
+    padding: 15px;
+    border: 2px solid #cf4a1f;
+}
+
+.left-sidebar h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.left-sidebar ul {
+    padding-left: 20px;
+}
+
+.left-sidebar li {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* HERO SECTION */
+.hero {
+    grid-column: 2;
+    grid-row: 1;
+    border: 2px solid #cf4a1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ABOUT SECTION */
+.about {
+    grid-column: 1 / 3;
+    background-color: #ffe0b2;
+    padding: 15px;
+    border: 2px solid #cf4a1f;
+}
+
+.about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* RIGHT SIDEBAR */
+.right-sidebar {
+    grid-column: 3;
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ffe0b2;
+    padding: 15px;
+    border: 2px solid #cf4a1f;
+}
+
+/* FEATURED COURSES */
+.featured {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.featured h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.course-box {
+    width: 100%;
+    height: 140px;
+    border: 2px solid #e95515;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.course-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#stadium-course {
+    background-image: url('tpc\ scottsdale\ stadium\ course.jpg');
+}
+
+#troon-north {
+    background-image: url('troon\ north\ photo.jpg');
+}
+
+.featured p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* FOOTER */
+footer {
+    background-color: #ff6d2d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #cf4a1f;
+    width: 100%;
+}
