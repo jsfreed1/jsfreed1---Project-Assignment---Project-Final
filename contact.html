@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Desert Course Finder</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Desert Course Finder</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="courses-page">
+
+        <h2>Contact Us</h2>
+
+        <p style="text-align:center">
+            Email Us Directly:
+            <a href="mailto:jsfreed1@asu.edu">jsfreed1@asu.edu</a>
+        </p>
+        <div class="course-card" style="max-width:600px; margin:auto;">
+
+            <form id="contactForm">
+
+                <!-- NAME -->
+                <label>Name</label>
+                <input type="text" placeholder="Enter your name" required
+                    style="width:100%; padding:10px; margin:10px 0;">
+
+                <!-- EMAIL -->
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email" required
+                    style="width:100%; padding:10px; margin:10px 0;">
+
+                <!-- FEEDBACK -->
+                <label>Your Feedback</label>
+                <textarea placeholder="What do you like about the site? What would you change?" required
+                    style="width:100%; padding:10px; margin:10px 0; height:120px;"></textarea>
+
+                <!-- COURSE SUGGESTION -->
+                <label>Suggest a Course (Optional)</label>
+                <input type="text" placeholder="Course name + city" style="width:100%; padding:10px; margin:10px 0;">
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit"
+                    style="width:100%; padding:12px; background:#ff6d2d; color:white; border:none; cursor:pointer;">
+                    Send Message
+                </button>
+
+            </form>
+
+            <!-- THANK YOU MESSAGE -->
+            <p id="thankYouMessage" style="display:none; margin-top:15px; color:green; font-weight:bold;">
+                Thank you! Your feedback has been submitted.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Home | Search | Contact | Copyright © 2026 Desert Course Finder. All rights reserved.</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        const form = document.getElementById("contactForm");
+        const message = document.getElementById("thankYouMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // stops page reload
+
+            form.reset(); // clears inputs
+            form.style.display = "none"; // hides form
+            message.style.display = "block"; // shows thank you message
+        });
+    </script>
+
+</body>
+
+</html>

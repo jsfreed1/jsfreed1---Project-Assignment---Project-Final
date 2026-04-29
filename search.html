@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Desert Course Finder</title>
+    <link rel="stylesheet" href="layout.css">
+
+    <style>
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cf4a1f;
+        }
+
+        #suggestions {
+            position: absolute;
+            width: 100%;
+            background: #ffe0b2;
+            border: 2px solid #cf4a1f;
+            border-top: none;
+            z-index: 1000;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #ff9c5b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Desert Course Finder</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="courses-page">
+
+        <h2>Search for a Course</h2>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Start typing a course or city...">
+            <div id="suggestions"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Home | Search | Contact | Copyright © 2026 Desert Course Finder</p>
+    </footer>
+
+    <script>
+        const courses = [
+
+            // SCOTTSDALE
+            { name: "TPC Scottsdale Stadium Course", city: "Scottsdale", link: "scottsdale.html" },
+            { name: "Troon North Golf Club", city: "Scottsdale", link: "scottsdale.html" },
+            { name: "Continental Golf Course", city: "Scottsdale", link: "scottsdale.html" },
+            { name: "The Phoenician Golf Club", city: "Scottsdale", link: "scottsdale.html" },
+            { name: "Talking Stick Golf Club - Piipaash (South)", city: "Scottsdale", link: "scottsdale.html" },
+            { name: "Talking Stick Golf Club - O'odham (North)", city: "Scottsdale", link: "scottsdale.html" },
+
+            // PHOENIX
+            { name: "Raven Golf Club", city: "Phoenix", link: "phoenix.html" },
+            { name: "Arizona Grand Golf Course", city: "Phoenix", link: "phoenix.html" },
+            { name: "Lookout Mountain Golf Course", city: "Phoenix", link: "phoenix.html" },
+            { name: "Phoenix Country Club", city: "Phoenix", link: "phoenix.html" },
+            { name: "The Legacy Golf Club", city: "Phoenix", link: "phoenix.html" },
+            { name: "Papago Golf Club", city: "Phoenix", link: "phoenix.html" },
+
+            // MESA
+            { name: "Painted Mountain Golf Club", city: "Mesa", link: "mesa.html" },
+            { name: "Las Sendas Golf Club", city: "Mesa", link: "mesa.html" },
+            { name: "Sunland Springs Golf Club", city: "Mesa", link: "mesa.html" },
+            { name: "Sun Village Golf Club", city: "Mesa", link: "mesa.html" },
+            { name: "Dobson Ranch Golf Club", city: "Mesa", link: "mesa.html" },
+            { name: "Grass Clippings at Rolling Hills Golf Course", city: "Mesa", link: "mesa.html" },
+
+            // TUCSON
+            { name: "El Rio Golf Club", city: "Tucson", link: "tucson.html" },
+            { name: "Silverbell Golf Course", city: "Tucson", link: "tucson.html" },
+            { name: "The Club at Starr Pass", city: "Tucson", link: "tucson.html" },
+            { name: "Fred Enke Golf Course", city: "Tucson", link: "tucson.html" },
+            { name: "Ventana Canyon Golf Club", city: "Tucson", link: "tucson.html" },
+            { name: "Arizona National Golf Club", city: "Tucson", link: "tucson.html" },
+
+            // SEDONA
+            { name: "Sedona Golf Resort", city: "Sedona", link: "sedona.html" },
+            { name: "Canyon Mesa Country Club", city: "Sedona", link: "sedona.html" },
+            { name: "Agave Highlands Golf Club", city: "Sedona", link: "sedona.html" },
+            { name: "Coyote Trails Golf Course", city: "Sedona", link: "sedona.html" },
+
+            // FLAGSTAFF
+            { name: "Flagstaff Ranch Golf Club", city: "Flagstaff", link: "flagstaff.html" },
+            { name: "Pine Canyon Golf Club", city: "Flagstaff", link: "flagstaff.html" },
+            { name: "Forest Highlands Golf Club", city: "Flagstaff", link: "flagstaff.html" },
+            { name: "Continental Country Club", city: "Flagstaff", link: "flagstaff.html" },
+            { name: "Aspen Valley Golf Club", city: "Flagstaff", link: "flagstaff.html" }
+
+        ];
+
+        const input = document.getElementById("searchInput");
+        const suggestions = document.getElementById("suggestions");
+
+        input.addEventListener("keyup", () => {
+            const value = input.value.toLowerCase();
+            suggestions.innerHTML = "";
+
+            if (!value) return;
+
+            const matches = courses.filter(course =>
+                course.name.toLowerCase().includes(value) ||
+                course.city.toLowerCase().includes(value)
+            );
+
+            matches.forEach(course => {
+                const div = document.createElement("div");
+                div.classList.add("suggestion-item");
+
+                div.textContent = course.name + " (" + course.city + ")";
+
+                div.onclick = () => {
+                    window.location.href = course.link;
+                };
+
+                suggestions.appendChild(div);
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".search-container")) {
+                suggestions.innerHTML = "";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
